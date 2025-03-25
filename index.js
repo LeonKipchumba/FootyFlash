@@ -66,4 +66,4 @@ searchInput.addEventListener("input", function () {
 });
 
 fetchMatches();
-setInterval(fetchMatches, 30000); 
+setInterval(fetchMatches, 30000);
