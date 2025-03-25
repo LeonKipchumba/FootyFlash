@@ -1,60 +1,56 @@
-const apiKey = "d21ed8429c68ec0de649a1e39d1e788c";
+const apiKey = "2fae46818c507dd8001111a78a3f282c";
 const apiUrl = "https://v3.football.api-sports.io/fixtures?live=all";
 
 async function fetchMatches() {
     try {
-        const response = await fetch(apiUrl, {
-            method: "GET",
-            headers: { "x-apisports-key": apiKey }
-        });
-        const data = await response.json();
+        document.getElementById("scores").innerHTML = "<p>Loading matches...</p>"; 
 
-        if (data.response.length === 0) {
-            document.getElementById("scores").innerHTML = "<p>No live matches currently.</p>";
+        const response = await fetch(apiUrl, {
+            headers: { 'X-Auth-Token': apiKey }
+        });
+
+        const data = await response.json();
+        console.log("API Response:", data); 
+
+        if (!data.matches || data.matches.length === 0) {
+            document.getElementById("scores").innerHTML = "<p>No live matches available.</p>";
             return;
         }
 
-        displayMatches(data.response);
+        displayMatches(data.matches); 
     } catch (error) {
         console.error("Error fetching matches:", error);
+        document.getElementById("scores").innerHTML = "<p>Error loading matches.</p>"; 
     }
 }
 
+
 function displayMatches(matches) {
     const scoresContainer = document.getElementById("scores");
-    scoresContainer.innerHTML = ""; // Clear previous data
+    scoresContainer.innerHTML = ""; 
 
     matches.forEach(match => {
-        const home = match.teams.home;
-        const away = match.teams.away;
-        const league = match.league;
-        const score = match.score.fulltime || { home: "-", away: "-" };
-
         const matchElement = document.createElement("div");
         matchElement.classList.add("match", "fade-in");
 
         matchElement.innerHTML = `
-            <div class="match-card">
-                <p class="league">${league.name}</p>
-                <div class="teams">
-                    <div class="team">
-                        <img src="${home.logo}" alt="${home.name}" class="team-logo">
-                        <span>${home.name}</span>
-                    </div>
-                    <strong class="score">${score.home} - ${score.away}</strong>
-                    <div class="team">
-                        <img src="${away.logo}" alt="${away.name}" class="team-logo">
-                        <span>${away.name}</span>
-                    </div>
-                </div>
-                <p class="status">${match.fixture.status.long}</p>
+            <div class="teams">
+                <img src="${match.homeTeam.crest || ''}" alt="${match.homeTeam.name}" class="team-logo">
+                <span class="team">${match.homeTeam.name}</span>
+                <strong>${match.score.fullTime.homeTeam ?? '-'} - ${match.score.fullTime.awayTeam ?? '-'}</strong>
+                <span class="team">${match.awayTeam.name}</span>
+                <img src="${match.awayTeam.crest || ''}" alt="${match.awayTeam.name}" class="team-logo">
             </div>
+            <p>Competition: ${match.competition.name}</p>
+            <p>Status: ${match.status}</p>
         `;
+
         scoresContainer.appendChild(matchElement);
     });
 }
 
-// Search Functionality
+
+
 document.getElementById("searchInput").addEventListener("input", function () {
     const searchTerm = this.value.toLowerCase();
     document.querySelectorAll(".match").forEach(match => {
@@ -62,6 +58,6 @@ document.getElementById("searchInput").addEventListener("input", function () {
     });
 });
 
-// Auto-refresh every 30 seconds
+
 fetchMatches();
 setInterval(fetchMatches, 30000);
