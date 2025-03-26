@@ -1,7 +1,7 @@
-const apiKey = "2fae46818c507dd8001111a78a3f282c"; // Replace with your API key
+const apiKey = "2fae46818c507dd8001111a78a3f282c";
 const apiUrl = "https://v3.football.api-sports.io/fixtures?live=all";
 
-// ✅ Function to fetch live matches
+
 async function fetchMatches() {
     try {
         document.getElementById("scores").innerHTML = "<p>Loading matches...</p>";
@@ -11,21 +11,21 @@ async function fetchMatches() {
         });
 
         const data = await response.json();
-        console.log("API Response:", data); // ✅ Debugging log
+        console.log("API Response:", data); 
 
         if (!data.response || data.response.length === 0) { 
             document.getElementById("scores").innerHTML = "<p>No live matches available.</p>";
             return;
         }
 
-        displayMatches(data.response); // ✅ Pass correct data
+        displayMatches(data.response); 
     } catch (error) {
         console.error("Error fetching matches:", error);
         document.getElementById("scores").innerHTML = "<p>Error loading matches.</p>";
     }
 }
 
-// ✅ Function to display matches
+
 function displayMatches(matches) {
     const scoresContainer = document.getElementById("scores");
     scoresContainer.innerHTML = ""; 
@@ -49,22 +49,30 @@ function displayMatches(matches) {
         scoresContainer.appendChild(matchElement);
     });
 
-    applySearchFilter(); // ✅ Ensure search works on newly added matches
+    applySearchFilter(); 
 }
 
-// ✅ Function to filter matches based on search input
-function applySearchFilter() {
-    const searchTerm = document.getElementById("searchInput").value.trim().toLowerCase();
 
-    document.querySelectorAll(".match").forEach(match => {
-        const matchText = match.textContent.toLowerCase();
-        match.style.display = matchText.includes(searchTerm) ? "block" : "none";
+function applySearchFilter() {
+    const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+    const matches = document.querySelectorAll(".match");
+
+    matches.forEach(match => {
+        const teamNames = match.querySelector(".teams").textContent.toLowerCase(); 
+        if (teamNames.includes(searchTerm)) {
+            match.style.display = "block"; 
+        } else {
+            match.style.display = "none"; 
+        }
     });
 }
 
-// ✅ Attach search event listener
 document.getElementById("searchInput").addEventListener("input", applySearchFilter);
 
-// ✅ Fetch matches initially and update every 30 seconds
+
+
+document.getElementById("searchInput").addEventListener("input", applySearchFilter);
+
+
 fetchMatches();
 setInterval(fetchMatches, 30000);
