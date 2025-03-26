@@ -10,19 +10,21 @@ async function fetchMatches() {
         });
 
         const data = await response.json();
-        console.log("API Response:", data);
+        console.log("API Response:", data); 
 
         if (!data.response || data.response.length === 0) { 
             document.getElementById("scores").innerHTML = "<p>No live matches available.</p>";
             return;
         }
 
+        console.log("Matches Data:", data.response); 
         displayMatches(data.response); 
     } catch (error) {
         console.error("Error fetching matches:", error);
         document.getElementById("scores").innerHTML = "<p>Error loading matches.</p>";
     }
 }
+
 
 function displayMatches(matches) {
     const scoresContainer = document.getElementById("scores");
@@ -64,4 +66,3 @@ document.getElementById("searchInput").addEventListener("input", applySearchFilt
 fetchMatches();
 setInterval(fetchMatches, 30000);
 
-console.log("Matches Data:", data.response);
