@@ -1,6 +1,6 @@
 const apiKey = "2fae46818c507dd8001111a78a3f282c";
 const apiUrlLive = "https://v3.football.api-sports.io/fixtures?live=all";
-const apiUrlStandings = "https://v3.football.api-sports.io/standings?league=39&season=2024"; // Example: Premier League (Change league ID)
+const apiUrlStandings = "https://v3.football.api-sports.io/standings?league=39&season=2024"; 
 const apiUrlUpcoming = "https://v3.football.api-sports.io/fixtures?league=39&season=2024&next=10";
 
 async function fetchMatches() {
