@@ -3,61 +3,65 @@ const apiUrl = "https://v3.football.api-sports.io/fixtures?live=all";
 
 async function fetchMatches() {
     try {
-        document.getElementById("scores").innerHTML = "<p>Loading matches...</p>"; 
+        document.getElementById("scores").innerHTML = "<p>Loading matches...</p>";
 
         const response = await fetch(apiUrl, {
-            headers: { 'X-Auth-Token': apiKey }
+            headers: { 'x-apisports-key': apiKey } 
         });
 
         const data = await response.json();
-        console.log("API Response:", data); 
+        console.log("API Response:", data);
 
-        if (!data.matches || data.matches.length === 0) {
+        if (!data.response || data.response.length === 0) { 
             document.getElementById("scores").innerHTML = "<p>No live matches available.</p>";
             return;
         }
 
-        displayMatches(data.matches); 
+        displayMatches(data.response); 
     } catch (error) {
         console.error("Error fetching matches:", error);
-        document.getElementById("scores").innerHTML = "<p>Error loading matches.</p>"; 
+        document.getElementById("scores").innerHTML = "<p>Error loading matches.</p>";
     }
 }
-
 
 function displayMatches(matches) {
     const scoresContainer = document.getElementById("scores");
     scoresContainer.innerHTML = ""; 
-
     matches.forEach(match => {
         const matchElement = document.createElement("div");
         matchElement.classList.add("match", "fade-in");
 
         matchElement.innerHTML = `
             <div class="teams">
-                <img src="${match.homeTeam.crest || ''}" alt="${match.homeTeam.name}" class="team-logo">
-                <span class="team">${match.homeTeam.name}</span>
-                <strong>${match.score.fullTime.homeTeam ?? '-'} - ${match.score.fullTime.awayTeam ?? '-'}</strong>
-                <span class="team">${match.awayTeam.name}</span>
-                <img src="${match.awayTeam.crest || ''}" alt="${match.awayTeam.name}" class="team-logo">
+                <img src="${match.teams.home.logo || ''}" alt="${match.teams.home.name}" class="team-logo">
+                <span class="team">${match.teams.home.name}</span>
+                <strong>${match.goals.home ?? '-'} - ${match.goals.away ?? '-'}</strong>
+                <span class="team">${match.teams.away.name}</span>
+                <img src="${match.teams.away.logo || ''}" alt="${match.teams.away.name}" class="team-logo">
             </div>
-            <p>Competition: ${match.competition.name}</p>
-            <p>Status: ${match.status}</p>
+            <p>Competition: ${match.league.name}</p>
+            <p>Status: ${match.fixture.status.short}</p>
         `;
 
         scoresContainer.appendChild(matchElement);
     });
+
+   
+    applySearchFilter();
 }
 
 
-
-document.getElementById("searchInput").addEventListener("input", function () {
-    const searchTerm = this.value.toLowerCase();
+function applySearchFilter() {
+    const searchTerm = document.getElementById("searchInput").value.toLowerCase();
     document.querySelectorAll(".match").forEach(match => {
         match.style.display = match.textContent.toLowerCase().includes(searchTerm) ? "block" : "none";
     });
-});
+}
+
+document.getElementById("searchInput").addEventListener("input", applySearchFilter);
 
 
 fetchMatches();
 setInterval(fetchMatches, 30000);
+
+console.log("Matches Data:", data.response);
