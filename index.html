@@ -3,16 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FootyFlash</title>
-    <link rel="stylesheet" href="style.css">
+    <title>FootyFlash - Live Football Updates</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
         <h1>FootyFlash</h1>
-        <input type="text" id="searchInput" placeholder="Search...">
+        <input type="text" id="teamSearch" placeholder="Search for a team...">
     </header>
-    <main id="scores"></main>
-    <script src="index.js"></script>
+    
+    <section id="liveScores">
+        <h2>Live Scores</h2>
+        <div id="scoresContainer"></div>
+    </section>
+    
+    <section id="matchDetails">
+        <h2>Match Details & Statistics</h2>
+        <div id="matchStatsContainer"></div>
+    </section>
+    
+    <section id="leagueStandings">
+        <h2>League Standings & Fixtures</h2>
+        <div id="standingsContainer"></div>
+        <div id="fixturesContainer"></div>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
- 

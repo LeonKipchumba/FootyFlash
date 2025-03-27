@@ -1,39 +1,51 @@
 body {
     font-family: Arial, sans-serif;
-    text-align: center;
+    margin: 0;
+    padding: 0;
     background-color: #f4f4f4;
+    text-align: center;
 }
 
 header {
-    background-color: #ff4500;
+    background-color: #007bff;
     color: white;
     padding: 20px;
 }
 
-#searchInput {
-    width: 50%;
-    padding: 10px;
+h1 {
+    margin: 0;
+}
+
+input[type="text"] {
     margin-top: 10px;
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    border: none;
+    border-radius: 5px;
 }
 
-main {
-    margin: 20px;
-}
-
-.match {
+section {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
     background: white;
-    padding: 15px;
-    margin: 10px;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.match:hover {
-    transform: scale(1.05);
+.match, .team {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
-.team-logo {
-    width: 40px;
-    height: 40px;
+.match:last-child, .team:last-child {
+    border-bottom: none;
+}
+
+img {
+    display: block;
+    margin: 10px auto;
+    max-width: 50px;
 }
