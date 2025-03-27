@@ -1,78 +1,41 @@
-/* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
-/* Header */
 header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #1e3a8a;
-}
-
-/* Buttons */
-nav {
-    margin: 15px 0;
+    background-color: #333;
+    color: white;
+    padding: 20px;
 }
 
 nav button {
-    background-color: #2563eb;
-    color: white;
-    border: none;
-    padding: 10px 15px;
     margin: 5px;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
     cursor: pointer;
-    border-radius: 5px;
     font-size: 16px;
-    transition: 0.3s;
+    border-radius: 5px;
 }
 
 nav button:hover {
-    background-color: #1e40af;
+    background-color: #0056b3;
 }
 
-/* Section Styling */
-section {
+main {
+    padding: 20px;
+}
+
+.match, .team, .fixture {
     background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
     margin: 10px auto;
-    max-width: 700px;
-}
-
-/* Section Headers */
-h2 {
-    color: #1e3a8a;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 20px;
-}
-
-/* Error Messages */
-.error {
-    color: red;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-/* Footer */
-footer {
-    margin-top: 20px;
-    background-color: #1e3a8a;
-    color: white;
-    padding: 10px;
-    font-size: 14px;
-    text-align: center;
+    padding: 15px;
     border-radius: 5px;
+    width: 80%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }

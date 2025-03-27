@@ -4,56 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FootyFlash - Live Scores & Stats</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>FootyFlash ⚽</h1>
         <nav>
-            <button onclick="fetchLiveScores()">Refresh Live Scores</button>
-            <button onclick="fetchStandings()">Update Standings</button>
-            <button onclick="fetchFixtures()">Check Fixtures</button>
+            <button id="liveScoresBtn">Live Scores</button>
+            <button id="standingsBtn">League Standings</button>
+            <button id="fixturesBtn">Upcoming Fixtures</button>
         </nav>
     </header>
 
-
-    <div id="search-container">
-        <input type="text" id="searchInput" placeholder="Search for a team..." />
-        <button onclick="searchTeam()">Search</button>
-    </div>
-    
-    <div id="searchResults"></div> <!-- This will show the search results -->
-    
-
     <main>
-        <!-- Live Scores Section -->
-        <section id="liveScoresSection">
-            <h2>🔴 Live Scores</h2>
-            <div id="liveScoresContainer">Loading live scores...</div>
-        </section>
-
-        <!-- Match Details & Stats Section -->
-        <section id="matchStatsSection">
-            <h2>📊 Match Details & Stats</h2>
-            <div id="matchStatsContainer">Select a match to view details.</div>
-        </section>
-
-        <!-- League Standings Section -->
-        <section id="standingsSection">
-            <h2>🏆 League Standings</h2>
-            <div id="standingsContainer">Loading standings...</div>
-        </section>
-
-        <!-- Upcoming Fixtures Section -->
-        <section id="fixturesSection">
-            <h2>📅 Upcoming Fixtures</h2>
-            <div id="fixturesContainer">Loading fixtures...</div>
+        <section id="content">
+            <h2>Welcome to FootyFlash</h2>
+            <p>Select an option to view live scores, league standings, or upcoming fixtures.</p>
         </section>
     </main>
-
-    <footer>
-        <p>Powered by FootyFlash ⚽ | Live Football Stats & Scores</p>
-    </footer>
 
     <script src="index.js"></script>
 </body>
