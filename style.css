@@ -1,51 +1,78 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
     text-align: center;
 }
 
+/* Header */
 header {
-    background-color: #007bff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #1e3a8a;
+}
+
+/* Buttons */
+nav {
+    margin: 15px 0;
+}
+
+nav button {
+    background-color: #2563eb;
     color: white;
-    padding: 20px;
-}
-
-h1 {
-    margin: 0;
-}
-
-input[type="text"] {
-    margin-top: 10px;
-    padding: 10px;
-    width: 80%;
-    max-width: 400px;
     border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
     border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s;
 }
 
+nav button:hover {
+    background-color: #1e40af;
+}
+
+/* Section Styling */
 section {
-    margin: 20px auto;
-    width: 90%;
-    max-width: 800px;
     background: white;
-    padding: 20px;
+    padding: 15px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.match, .team {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.match:last-child, .team:last-child {
-    border-bottom: none;
-}
-
-img {
-    display: block;
+    text-align: left;
     margin: 10px auto;
-    max-width: 50px;
+    max-width: 700px;
+}
+
+/* Section Headers */
+h2 {
+    color: #1e3a8a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+}
+
+/* Error Messages */
+.error {
+    color: red;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    background-color: #1e3a8a;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 5px;
 }

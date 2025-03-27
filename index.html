@@ -3,32 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FootyFlash - Live Football Updates</title>
+    <title>FootyFlash - Live Scores & Stats</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
-        <h1>FootyFlash</h1>
-        <input type="text" id="teamSearch" placeholder="Search for a team...">
+        <h1>FootyFlash ⚽</h1>
+        <nav>
+            <button onclick="fetchLiveScores()">Refresh Live Scores</button>
+            <button onclick="fetchStandings()">Update Standings</button>
+            <button onclick="fetchFixtures()">Check Fixtures</button>
+        </nav>
     </header>
-    
-    <section id="liveScores">
-        <h2>Live Scores</h2>
-        <div id="scoresContainer"></div>
-    </section>
-    
-    <section id="matchDetails">
-        <h2>Match Details & Statistics</h2>
-        <div id="matchStatsContainer"></div>
-    </section>
-    
-    <section id="leagueStandings">
-        <h2>League Standings & Fixtures</h2>
-        <div id="standingsContainer"></div>
-        <div id="fixturesContainer"></div>
-    </section>
 
-    <script src="script.js"></script>
+
+    <div id="search-container">
+        <input type="text" id="searchInput" placeholder="Search for a team..." />
+        <button onclick="searchTeam()">Search</button>
+    </div>
+    
+    <div id="searchResults"></div> <!-- This will show the search results -->
+    
+
+    <main>
+        <!-- Live Scores Section -->
+        <section id="liveScoresSection">
+            <h2>🔴 Live Scores</h2>
+            <div id="liveScoresContainer">Loading live scores...</div>
+        </section>
+
+        <!-- Match Details & Stats Section -->
+        <section id="matchStatsSection">
+            <h2>📊 Match Details & Stats</h2>
+            <div id="matchStatsContainer">Select a match to view details.</div>
+        </section>
+
+        <!-- League Standings Section -->
+        <section id="standingsSection">
+            <h2>🏆 League Standings</h2>
+            <div id="standingsContainer">Loading standings...</div>
+        </section>
+
+        <!-- Upcoming Fixtures Section -->
+        <section id="fixturesSection">
+            <h2>📅 Upcoming Fixtures</h2>
+            <div id="fixturesContainer">Loading fixtures...</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Powered by FootyFlash ⚽ | Live Football Stats & Scores</p>
+    </footer>
+
+    <script src="index.js"></script>
 </body>
 </html>
