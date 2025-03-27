@@ -1,4 +1,4 @@
-const API_KEY = 'your_api_key_here'; 
+const API_KEY = '2fae46818c507dd8001111a78a3f282c'; 
 const scoresContainer = document.getElementById('scoresContainer');
 const matchStatsContainer = document.getElementById('matchStatsContainer');
 const standingsContainer = document.getElementById('standingsContainer');
