@@ -1,41 +1,80 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    text-align: center;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
 }
 
+/* Header */
 header {
-    background-color: #333;
+    background-color: #1e3a8a;
     color: white;
     padding: 20px;
+    font-size: 1.5em;
 }
 
-nav button {
-    margin: 5px;
-    padding: 10px;
-    border: none;
-    background-color: #007bff;
+nav {
+    margin-top: 10px;
+}
+
+button {
+    background-color: #2563eb;
     color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1em;
     cursor: pointer;
-    font-size: 16px;
     border-radius: 5px;
+    transition: background 0.3s;
 }
 
-nav button:hover {
-    background-color: #0056b3;
+button:hover {
+    background-color: #1d4ed8;
 }
 
+/* Main Content */
 main {
     padding: 20px;
 }
 
-.match, .team, .fixture {
+#content {
     background: white;
-    margin: 10px auto;
-    padding: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+}
+
+/* League Titles */
+h3 {
+    color: #1e40af;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 5px;
+    margin-top: 20px;
+}
+
+/* Match and Standings List */
+p {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.team {
+    background: #e5e7eb;
+    padding: 10px;
+    margin: 5px 0;
     border-radius: 5px;
-    width: 80%;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
 }
