@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FootyFlash - Live Football Scores</title>
+    <title>FootyFlash</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>FootyFlash</h1>
-        <nav>
-            <button id="liveScoresBtn">Live Scores</button>
-            <button id="standingsBtn">Standings</button>
-            <button id="fixturesBtn">Upcoming Fixtures</button>
+        <h1>⚽ FootyFlash ⚽</h1>
+        <nav role="navigation">
+            <div>
+                <button id="liveScoresBtn" aria-label="View Live Scores">Live Scores</button>
+                <button id="standingsBtn" aria-label="View Standings">Standings</button>
+                <button id="fixturesBtn" aria-label="View Upcoming Fixtures">Upcoming Fixtures</button>
+            </div>
         </nav>
     </header>
 
     <main>
-        <div id="content">
+        <section id="content">
             <p>Select an option to view live scores, standings, or fixtures.</p>
-        </div>
+        </section>
     </main>
 
     <script src="index.js"></script>
