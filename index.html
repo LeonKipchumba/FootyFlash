@@ -3,19 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FootyFlash - Live Matches</title>
+    <title>FootyFlash</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>⚽ FootyFlash ⚽</h1>
-        <button id="liveScoresBtn">Live Matches</button>
     </header>
+    
     <main>
-        <div id="content">
-            <p>Click the button to load live matches.</p>
-        </div>
+        <section id="live-matches">
+            <h2>Live Matches</h2>
+            <div id="matches-container"></div>
+        </section>
+
+        <section id="match-details">
+            <h2>Match Details & Statistics</h2>
+            <div id="details-container"></div>
+        </section>
+
+        <section id="league-standings">
+            <h2>League Standings</h2>
+            <div id="standings-container"></div>
+        </section>
+
+        <section id="fixtures">
+            <h2>Upcoming Fixtures</h2>
+            <div id="fixtures-container"></div>
+        </section>
     </main>
+    
     <script src="index.js"></script>
 </body>
 </html>
