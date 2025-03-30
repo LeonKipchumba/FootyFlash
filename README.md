@@ -6,7 +6,7 @@
 - 🏆 Displays live match scores.
 - 📊 Shows match statistics like possession, shots on target, and more.
 - 🔎 Search functionality to find specific matches.
-- 🌐 Fetches data from a football API.
+- 🌐 Fetches data from  football API.
 
 ## Installation
 1. Clone the repository:
